@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfd1634uvdqem"]
+
+[ext_resource type="PackedScene" uid="uid://dkeyt7cb0fu1c" path="res://src/paddle.tscn" id="1_58283"]
+[ext_resource type="PackedScene" uid="uid://crq7spff1qev5" path="res://src/ball.tscn" id="2_6cp3u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyniw"]
+size = Vector2(24, 652)
+
+[node name="Node" type="Node"]
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-12, 324)
+shape = SubResource("RectangleShape2D_kyniw")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1176, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(-12, 322)
+shape = SubResource("RectangleShape2D_kyniw")
+
+[node name="Player1" parent="." instance=ExtResource("1_58283")]
+position = Vector2(160, 622)
+
+[node name="Player2" parent="." instance=ExtResource("1_58283")]
+position = Vector2(1006, 622)
+movement_enabled = false
+
+[node name="MeshInstance2D" parent="Player2" index="0"]
+modulate = Color(0.376471, 0.482353, 0.152941, 1)
+
+[node name="Ball" parent="." instance=ExtResource("2_6cp3u")]
+position = Vector2(113, 205)
+collision_mask = 5
+motion_mode = 1
+
+[editable path="Player2"]
