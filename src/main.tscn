@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfd1634uvdqem"]
+[gd_scene load_steps=6 format=3 uid="uid://dfd1634uvdqem"]
 
 [ext_resource type="PackedScene" uid="uid://dkeyt7cb0fu1c" path="res://src/paddle.tscn" id="1_58283"]
+[ext_resource type="Script" path="res://src/main.gd" id="1_mckqf"]
 [ext_resource type="PackedScene" uid="uid://crq7spff1qev5" path="res://src/ball.tscn" id="2_6cp3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyniw"]
@@ -9,7 +10,9 @@ size = Vector2(24, 652)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6g0ek"]
 size = Vector2(1152, 20)
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" node_paths=PackedStringArray("players")]
+script = ExtResource("1_mckqf")
+players = [NodePath("Player1"), NodePath("Player2")]
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -38,6 +41,9 @@ shape = SubResource("RectangleShape2D_6g0ek")
 
 [node name="Player1" parent="." instance=ExtResource("1_58283")]
 position = Vector2(160, 622)
+platform_floor_layers = 4294967292
+platform_wall_layers = 4
+movement_enabled = false
 
 [node name="Player2" parent="." instance=ExtResource("1_58283")]
 position = Vector2(1006, 622)
