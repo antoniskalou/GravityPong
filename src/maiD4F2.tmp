@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfd1634uvdqem"]
+[gd_scene load_steps=8 format=3 uid="uid://dfd1634uvdqem"]
 
 [ext_resource type="PackedScene" uid="uid://dkeyt7cb0fu1c" path="res://src/paddle.tscn" id="1_58283"]
 [ext_resource type="Script" path="res://src/main.gd" id="1_mckqf"]
-[ext_resource type="PackedScene" uid="uid://v55jgofobus" path="res://src/hud.tscn" id="4_3i5ar"]
 [ext_resource type="Script" path="res://src/ball_spawner.gd" id="4_gfbqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyniw"]
@@ -71,7 +70,5 @@ movement_enabled = false
 modulate = Color(0, 0.533333, 0.396078, 1)
 position = Vector2(1006, 622)
 movement_enabled = false
-
-[node name="HUD" parent="." instance=ExtResource("4_3i5ar")]
 
 [connection signal="body_entered" from="BelowFloorDetector" to="." method="_on_ball_left_scene"]
