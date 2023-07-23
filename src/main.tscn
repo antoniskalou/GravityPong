@@ -17,9 +17,10 @@ size = Vector2(1153, 83)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5lbo"]
 size = Vector2(670, 141)
 
-[node name="Node" type="Node" node_paths=PackedStringArray("players")]
+[node name="Node" type="Node" node_paths=PackedStringArray("player_1", "player_2")]
 script = ExtResource("1_mckqf")
-players = [NodePath("Player1"), NodePath("Player2")]
+player_1 = NodePath("Player1")
+player_2 = NodePath("Player2")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -75,3 +76,4 @@ movement_enabled = false
 [node name="HUD" parent="." instance=ExtResource("4_3i5ar")]
 
 [connection signal="body_entered" from="BelowFloorDetector" to="." method="_on_ball_left_scene"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
