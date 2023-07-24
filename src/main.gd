@@ -18,7 +18,8 @@ func game_start():
 	
 
 func game_over():
-	$HUD.game_over()
+	var winner = 'Player 1' if current_player == player_1 else 'Player 2'
+	$HUD.game_over(winner)
 	
 
 func player_loose_life(player: CharacterBody2D) -> int:

@@ -3,18 +3,16 @@ extends CanvasLayer
 
 signal start_game
 
-# TODO: export this as Texture2D in custom HealthBar node
-@onready var heart_texture: TextureRect = $Play/HealthBar1/Heart
-
 
 func game_start() -> void:
 	$GameOver.hide()
 	$Play.show()
 	
 
-func game_over() -> void:
+func game_over(winner: String) -> void:
 	$GameOver.show()
 	$Play.hide()
+	$GameOver/Winner.text = winner + " wins!"
 
 
 func player_1_set_lives(lives: int) -> void:
