@@ -17,7 +17,6 @@ motion_mode = 1
 script = ExtResource("1_20rhy")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0.776471, 0, 0.501961, 1)
 mesh = SubResource("QuadMesh_nrv84")
 
 [node name="BallHitDetector" type="Area2D" parent="."]

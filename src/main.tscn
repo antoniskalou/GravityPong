@@ -63,17 +63,19 @@ position = Vector2(576, 84.5)
 shape = SubResource("RectangleShape2D_o5lbo")
 
 [node name="Player1" parent="." instance=ExtResource("1_58283")]
-position = Vector2(160, 622)
+modulate = Color(0.729412, 0, 0.133333, 1)
+position = Vector2(213, 622)
 platform_floor_layers = 4294967292
 platform_wall_layers = 4
 movement_enabled = false
 
 [node name="Player2" parent="." instance=ExtResource("1_58283")]
-modulate = Color(0, 0.533333, 0.396078, 1)
-position = Vector2(1006, 622)
+modulate = Color(3.99485e-06, 0.547122, 0.40665, 1)
+position = Vector2(921, 622)
 movement_enabled = false
 
 [node name="HUD" parent="." instance=ExtResource("4_3i5ar")]
 
 [connection signal="body_entered" from="BelowFloorDetector" to="." method="_on_ball_left_scene"]
-[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
+[connection signal="restart_game" from="HUD" to="." method="_on_hud_restart_game"]
+[connection signal="start_single_player" from="HUD" to="." method="_on_hud_start_single_player"]

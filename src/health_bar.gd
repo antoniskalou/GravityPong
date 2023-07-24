@@ -12,16 +12,15 @@ class_name HealthBar
 func _set_lives(new_lives: int) -> void:
 	lives = new_lives
 	var life_delta = get_child_count() - lives
-	if life_delta < 0: # add hearts
-		for i in range(0, abs(life_delta)):
+	for i in range(0, abs(life_delta)):
+		if life_delta < 0: # add hearts
 			var texture = TextureRect.new()
 			texture.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
 			texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 			texture.modulate = heartColor
 			texture.texture = heartTexture
 			add_child(texture)
-	elif life_delta > 0: # remove hearts
-		for i in range(0, life_delta):
+		elif life_delta > 0: # remove hearts
 			remove_first_child(self)
 
 	

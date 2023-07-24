@@ -18,8 +18,11 @@ func game_start():
 	
 
 func game_over():
-	var winner = 'Player 1' if current_player == player_1 else 'Player 2'
-	$HUD.game_over(winner)
+	# winner is the one that isn't playing, since the loser (current_player) 
+	# would have made the losing shot
+	var winner = next_player(current_player)
+	var winner_name = 'Player 1' if winner == player_1 else 'Player 2'
+	$HUD.game_over(winner_name, winner.modulate)
 	
 
 func player_loose_life(player: CharacterBody2D) -> int:
@@ -42,7 +45,7 @@ func next_player(current: CharacterBody2D) -> CharacterBody2D:
 func _ready() -> void:
 	for p in players:
 		p.connect("paddle_hit", _on_paddle_hit)
-	game_start()
+	$HUD.main_menu()
 	
 	
 func _on_paddle_hit(paddle: CharacterBody2D) -> void:
@@ -69,5 +72,9 @@ func _on_ball_left_scene(body: Node2D) -> void:
 		$BallSpawner.spawn_randomly()
 
 
-func _on_hud_start_game() -> void:
+func _on_hud_restart_game() -> void:
+	game_start()
+
+
+func _on_hud_start_single_player() -> void:
 	game_start()
