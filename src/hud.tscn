@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://v55jgofobus"]
+[gd_scene load_steps=5 format=3 uid="uid://v55jgofobus"]
 
 [ext_resource type="Texture2D" uid="uid://b838wfd7gt6oq" path="res://assets/icons/hearts.png" id="1_4fp27"]
 [ext_resource type="Script" path="res://src/hud.gd" id="1_niwif"]
 [ext_resource type="Theme" uid="uid://3mgf1on5qn1j" path="res://src/hud.tres" id="2_dbnox"]
+[ext_resource type="Script" path="res://src/health_bar.gd" id="3_adgsp"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_niwif")
@@ -45,58 +46,22 @@ text = "Play Again?"
 [node name="Play" type="CanvasLayer" parent="."]
 
 [node name="HealthBar1" type="HBoxContainer" parent="Play"]
-offset_right = 113.0
-offset_bottom = 35.0
-
-[node name="Heart" type="TextureRect" parent="Play/HealthBar1"]
-modulate = Color(0.937255, 0.243137, 0.380392, 1)
-layout_mode = 2
-texture = ExtResource("1_4fp27")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Heart2" type="TextureRect" parent="Play/HealthBar1"]
-modulate = Color(0.937255, 0.243137, 0.380392, 1)
-layout_mode = 2
-texture = ExtResource("1_4fp27")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Heart3" type="TextureRect" parent="Play/HealthBar1"]
-modulate = Color(0.937255, 0.243137, 0.380392, 1)
-layout_mode = 2
-texture = ExtResource("1_4fp27")
-expand_mode = 3
-stretch_mode = 4
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_adgsp")
+heartTexture = ExtResource("1_4fp27")
+heartColor = Color(0.784314, 0, 0.27451, 1)
 
 [node name="HealthBar2" type="HBoxContainer" parent="Play"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -113.0
-offset_bottom = 35.0
+offset_left = -40.0
+offset_bottom = 40.0
 grow_horizontal = 0
 alignment = 2
-
-[node name="Heart" type="TextureRect" parent="Play/HealthBar2"]
-modulate = Color(0, 0.654902, 0.321569, 1)
-layout_mode = 2
-texture = ExtResource("1_4fp27")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Heart2" type="TextureRect" parent="Play/HealthBar2"]
-modulate = Color(0, 0.654902, 0.321569, 1)
-layout_mode = 2
-texture = ExtResource("1_4fp27")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Heart3" type="TextureRect" parent="Play/HealthBar2"]
-modulate = Color(0, 0.654902, 0.321569, 1)
-layout_mode = 2
-texture = ExtResource("1_4fp27")
-expand_mode = 3
-stretch_mode = 4
+script = ExtResource("3_adgsp")
+heartTexture = ExtResource("1_4fp27")
+heartColor = Color(0, 0.513726, 0.0313726, 1)
 
 [connection signal="pressed" from="GameOver/PlayAgain" to="." method="_on_play_again_pressed"]
