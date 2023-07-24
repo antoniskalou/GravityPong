@@ -1,3 +1,4 @@
+@tool
 @icon("res://assets/icons/hearts.png")
 extends HBoxContainer
 class_name HealthBar
@@ -5,19 +6,11 @@ class_name HealthBar
 
 @export var heartTexture: Texture2D
 @export var heartColor: Color
-@export var start_lives: int = 3
+@export var lives: int = 3: set = _set_lives
 
 
-# TODO: show start lives in editor
-func _ready():
-	set_lives(start_lives)
-
-
-func lives() -> int:
-	return get_child_count()
-
-
-func set_lives(lives: int) -> void:
+func _set_lives(new_lives: int) -> void:
+	lives = new_lives
 	var life_delta = get_child_count() - lives
 	if life_delta < 0: # add hearts
 		for i in range(0, abs(life_delta)):
@@ -33,4 +26,6 @@ func set_lives(lives: int) -> void:
 
 	
 func remove_first_child(node: Node) -> void:
-	node.remove_child(node.get_child(0))
+	var child = node.get_child(0)
+	if child:
+		node.remove_child(child)

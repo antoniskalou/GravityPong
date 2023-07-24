@@ -18,11 +18,11 @@ func game_over() -> void:
 
 
 func player_1_set_lives(lives: int) -> void:
-	$Play/HealthBar1.set_lives(lives)
+	$Play/HealthBar1.lives = lives
 
 
 func player_2_set_lives(lives: int) -> void:
-	$Play/HealthBar2.set_lives(lives)
+	$Play/HealthBar2.lives = lives
 
 
 

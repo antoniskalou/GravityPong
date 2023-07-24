@@ -63,5 +63,6 @@ alignment = 2
 script = ExtResource("3_adgsp")
 heartTexture = ExtResource("1_4fp27")
 heartColor = Color(0, 0.513726, 0.0313726, 1)
+lives = null
 
 [connection signal="pressed" from="GameOver/PlayAgain" to="." method="_on_play_again_pressed"]
