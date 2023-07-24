@@ -13,6 +13,8 @@ func game_start():
 	lives = players.map(func(p): return 3)
 	$HUD.player_1_set_lives(lives[0])
 	$HUD.player_2_set_lives(lives[1])
+	$BallSpawner.spawn_randomly()
+	current_player.movement_enabled = true
 	
 
 func game_over():
@@ -37,10 +39,9 @@ func next_player(current: CharacterBody2D) -> CharacterBody2D:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$BallSpawner.spawn_randomly()
-	current_player.movement_enabled = true
 	for p in players:
 		p.connect("paddle_hit", _on_paddle_hit)
+	game_start()
 	
 	
 func _on_paddle_hit(paddle: CharacterBody2D) -> void:
@@ -55,7 +56,6 @@ func _on_paddle_hit(paddle: CharacterBody2D) -> void:
 
 func _on_ball_left_scene(body: Node2D) -> void:
 	var lives = player_loose_life(current_player)
-	print(current_player.name, " lives left: ", lives)
 	# update lives in score
 	if current_player == player_1:
 		$HUD.player_1_set_lives(lives)
