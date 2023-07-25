@@ -62,6 +62,8 @@ script = ExtResource("4_gfbqr")
 position = Vector2(576, 84.5)
 shape = SubResource("RectangleShape2D_o5lbo")
 
+[node name="SpawnTimer" type="Timer" parent="."]
+
 [node name="Player1" parent="." instance=ExtResource("3_s4rsf")]
 modulate = Color(0.764706, 0, 0.282353, 1)
 position = Vector2(213, 622)
