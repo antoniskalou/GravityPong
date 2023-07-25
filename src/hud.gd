@@ -50,3 +50,7 @@ func _on_main_menu_pressed() -> void:
 	# for now its fine to return to main menu, the game state will remain valid
 	# and when Single/Multi Player is clicked, the game state will be reset
 	main_menu()
+
+
+func _on_audio_toggled(button_pressed: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), not button_pressed)

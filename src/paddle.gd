@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal paddle_hit(body: CharacterBody2D)
 
-@export var speed := 700.0
+@export var speed := 800.0
 @export var movement_enabled := true
 
 

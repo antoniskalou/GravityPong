@@ -74,6 +74,8 @@ movement_enabled = false
 
 [node name="HUD" parent="." instance=ExtResource("4_3i5ar")]
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="BelowFloorDetector" to="." method="_on_ball_left_scene"]
 [connection signal="restart_game" from="HUD" to="." method="_on_hud_restart_game"]
 [connection signal="start_multi_player" from="HUD" to="." method="_on_hud_start_multi_player"]
