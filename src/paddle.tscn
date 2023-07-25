@@ -1,6 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkeyt7cb0fu1c"]
+[gd_scene load_steps=39 format=3 uid="uid://dkeyt7cb0fu1c"]
 
 [ext_resource type="Script" path="res://src/paddle.gd" id="1_20rhy"]
+[ext_resource type="AudioStream" uid="uid://bitwsqsjulbji" path="res://assets/sfx/4359__noisecollector__pongblipf4.wav" id="2_57y4g"]
+[ext_resource type="AudioStream" uid="uid://cx7oava52tihw" path="res://assets/sfx/4360__noisecollector__ponblipg5.wav" id="4_kw6tu"]
+[ext_resource type="AudioStream" uid="uid://ch5xusa7aj4eh" path="res://assets/sfx/4361__noisecollector__pongblipa3.wav" id="5_vuus2"]
+[ext_resource type="AudioStream" uid="uid://digp8x5fqh32q" path="res://assets/sfx/4362__noisecollector__pongblipa4.wav" id="6_6sa2m"]
+[ext_resource type="AudioStream" uid="uid://co8qkfcegfs8s" path="res://assets/sfx/4363__noisecollector__pongblipa3.wav" id="7_ap5fk"]
+[ext_resource type="AudioStream" uid="uid://cqvi5ka53abd7" path="res://assets/sfx/4364__noisecollector__pongblipa4.wav" id="8_mb1xx"]
+[ext_resource type="AudioStream" uid="uid://dy0qxqckjqabd" path="res://assets/sfx/4365__noisecollector__pongblipa5.wav" id="9_w5sen"]
+[ext_resource type="AudioStream" uid="uid://cli8clma16eiv" path="res://assets/sfx/4366__noisecollector__pongblipb3.wav" id="10_iuotg"]
+[ext_resource type="AudioStream" uid="uid://jq7765fo5ytq" path="res://assets/sfx/4367__noisecollector__pongblipb4.wav" id="11_er5am"]
+[ext_resource type="AudioStream" uid="uid://cal6a1cxt8tug" path="res://assets/sfx/4368__noisecollector__pongblipc3.wav" id="12_xq67p"]
+[ext_resource type="AudioStream" uid="uid://biseh3hmcgmlh" path="res://assets/sfx/4369__noisecollector__pongblipc4.wav" id="13_8bq7i"]
+[ext_resource type="AudioStream" uid="uid://dpnvs2cj41hsa" path="res://assets/sfx/4370__noisecollector__pongblipc5.wav" id="14_fc768"]
+[ext_resource type="AudioStream" uid="uid://bwhv6rx08ve52" path="res://assets/sfx/4371__noisecollector__pongblipc4.wav" id="15_rbbp3"]
+[ext_resource type="AudioStream" uid="uid://syu7r3q1ne8r" path="res://assets/sfx/4372__noisecollector__pongblipc5.wav" id="16_44n7c"]
+[ext_resource type="AudioStream" uid="uid://3fu8164e2eda" path="res://assets/sfx/4373__noisecollector__pongblipf3.wav" id="17_54tvt"]
+[ext_resource type="AudioStream" uid="uid://dnmc16417mc0k" path="res://assets/sfx/4374__noisecollector__pongblipf5.wav" id="18_rtj8j"]
+[ext_resource type="AudioStream" uid="uid://ck84jxmcmm1rx" path="res://assets/sfx/4375__noisecollector__pongblipg3.wav" id="19_xl6rq"]
+[ext_resource type="AudioStream" uid="uid://xf8w6mc3pgt2" path="res://assets/sfx/4376__noisecollector__pongblipg4.wav" id="20_jbkfx"]
+[ext_resource type="AudioStream" uid="uid://big18lxl78ktb" path="res://assets/sfx/4377__noisecollector__pongblipg3.wav" id="21_1kduo"]
+[ext_resource type="AudioStream" uid="uid://bcjn1hn2qr6mr" path="res://assets/sfx/4378__noisecollector__pongblipg4.wav" id="22_3jyl3"]
+[ext_resource type="AudioStream" uid="uid://di7afdjm6knk4" path="res://assets/sfx/4379__noisecollector__pongblipg5.wav" id="23_ngumi"]
+[ext_resource type="AudioStream" uid="uid://scf4ytinxqib" path="res://assets/sfx/4380__noisecollector__pongblipd3.wav" id="24_f4res"]
+[ext_resource type="AudioStream" uid="uid://wur07drifexa" path="res://assets/sfx/4381__noisecollector__pongblipd4.wav" id="25_dt0j1"]
+[ext_resource type="AudioStream" uid="uid://dmk722xpa6ob0" path="res://assets/sfx/4382__noisecollector__pongblipd5.wav" id="26_lu80b"]
+[ext_resource type="AudioStream" uid="uid://dkg55u1wngdhs" path="res://assets/sfx/4383__noisecollector__pongblipd3.wav" id="27_2pd8o"]
+[ext_resource type="AudioStream" uid="uid://dteh3sgmmm4hs" path="res://assets/sfx/4384__noisecollector__pongblipd4.wav" id="28_jm2qv"]
+[ext_resource type="AudioStream" uid="uid://mo3hoid267h0" path="res://assets/sfx/4385__noisecollector__pongblipd5.wav" id="29_3f0bl"]
+[ext_resource type="AudioStream" uid="uid://cdfna013vmcdl" path="res://assets/sfx/4386__noisecollector__pongblipe3.wav" id="30_43n66"]
+[ext_resource type="AudioStream" uid="uid://b2gcfrcviot3b" path="res://assets/sfx/4387__noisecollector__pongblipe4.wav" id="31_rr8it"]
+[ext_resource type="AudioStream" uid="uid://bm0rfi48lj5hp" path="res://assets/sfx/4388__noisecollector__pongblipe5.wav" id="32_ttyjt"]
+[ext_resource type="Script" path="res://src/random_sfx_player.gd" id="33_bekrs"]
+[ext_resource type="AudioStream" uid="uid://kothjfg14xyl" path="res://assets/sfx/4389__noisecollector__pongblipf3.wav" id="33_fqyrp"]
+[ext_resource type="AudioStream" uid="uid://crfyimeupsiw1" path="res://assets/sfx/4390__noisecollector__pongblipf4.wav" id="34_dmb5k"]
+[ext_resource type="AudioStream" uid="uid://c40j8xij3lw42" path="res://assets/sfx/4391__noisecollector__pongblipf5.wav" id="35_pj0yu"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nrv84"]
 size = Vector2(128, 20)
@@ -29,5 +63,9 @@ debug_color = Color(0.713726, 0.482353, 0, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jkhb8")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("33_bekrs")
+audio_files = Array[AudioStream]([ExtResource("2_57y4g"), ExtResource("4_kw6tu"), ExtResource("5_vuus2"), ExtResource("6_6sa2m"), ExtResource("7_ap5fk"), ExtResource("8_mb1xx"), ExtResource("9_w5sen"), ExtResource("10_iuotg"), ExtResource("11_er5am"), ExtResource("12_xq67p"), ExtResource("13_8bq7i"), ExtResource("14_fc768"), ExtResource("15_rbbp3"), ExtResource("16_44n7c"), ExtResource("17_54tvt"), ExtResource("18_rtj8j"), ExtResource("19_xl6rq"), ExtResource("20_jbkfx"), ExtResource("21_1kduo"), ExtResource("22_3jyl3"), ExtResource("23_ngumi"), ExtResource("24_f4res"), ExtResource("25_dt0j1"), ExtResource("26_lu80b"), ExtResource("27_2pd8o"), ExtResource("28_jm2qv"), ExtResource("29_3f0bl"), ExtResource("30_43n66"), ExtResource("31_rr8it"), ExtResource("32_ttyjt"), ExtResource("33_fqyrp"), ExtResource("34_dmb5k"), ExtResource("35_pj0yu")])
 
 [connection signal="body_entered" from="BallHitDetector" to="." method="_on_ball_hit_detector_body_entered"]

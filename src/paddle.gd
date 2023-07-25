@@ -12,4 +12,5 @@ func move(axis: float) -> void:
 
 
 func _on_ball_hit_detector_body_entered(body: Node2D) -> void:
+	$HitSound.play_random()
 	paddle_hit.emit(self)
