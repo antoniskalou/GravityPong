@@ -73,6 +73,21 @@ theme_override_font_sizes/font_size = 16
 button_pressed = true
 text = "Music"
 
+[node name="Controls" type="RichTextLabel" parent="MainMenu"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 98.0
+offset_top = -87.0
+offset_right = 407.0
+grow_vertical = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_dbnox")
+text = "CONTROLS
+
+Player 1: Gamepad L-axis or A and D
+Player 2: Left and right arrow"
+
 [node name="GameOver" type="CanvasLayer" parent="."]
 
 [node name="GameOver" type="Label" parent="GameOver"]
