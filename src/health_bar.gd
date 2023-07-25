@@ -25,6 +25,5 @@ func _set_lives(new_lives: int) -> void:
 
 	
 func remove_first_child(node: Node) -> void:
-	var child = node.get_child(0)
-	if child:
-		node.remove_child(child)
+	if node.get_child_count() > 0:
+		node.remove_child(node.get_child(0))

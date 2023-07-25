@@ -20,9 +20,14 @@ func _physics_process(delta: float) -> void:
 func deflect_from_paddle(collision: KinematicCollision2D) -> Vector2:
 	var paddle_shape = collision.get_collider_shape().shape
 	var paddle_width = paddle_shape.size.x
-	var paddle_x = collision.get_collider().position.x
+	var paddle_x = collision.get_collider().global_position.x
 	var hit_x = collision.get_position().x
-	# calculate distance from center of paddle as range between -1 and 1
-	var distance_from_center = (hit_x - paddle_x) / paddle_width * 2
+	# distance from center of paddle as range between 0 and 1
+	var distance_from_center = (hit_x - paddle_x + paddle_width / 2) / paddle_width
+	# avoid bugs when hitting side of paddle
+	distance_from_center = clampf(distance_from_center, 0, 1)
+	# set to range between -1 and 1
+	distance_from_center = (2 * distance_from_center) - 1
+	print("Distance from center: ", distance_from_center)
 	var angle_change = distance_from_center * max_angle
 	return velocity.rotated(deg_to_rad(angle_change))

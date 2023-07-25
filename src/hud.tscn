@@ -52,7 +52,6 @@ text = "Single Player"
 layout_mode = 2
 theme = ExtResource("2_dbnox")
 theme_override_font_sizes/font_size = 32
-disabled = true
 text = "Multi Player"
 
 [node name="Credits" type="Button" parent="MainMenu/Options"]

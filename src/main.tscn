@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfd1634uvdqem"]
 
-[ext_resource type="PackedScene" uid="uid://dkeyt7cb0fu1c" path="res://src/paddle.tscn" id="1_58283"]
 [ext_resource type="Script" path="res://src/main.gd" id="1_mckqf"]
+[ext_resource type="PackedScene" uid="uid://br8d8ieh5vlnu" path="res://src/player.tscn" id="3_s4rsf"]
 [ext_resource type="PackedScene" uid="uid://v55jgofobus" path="res://src/hud.tscn" id="4_3i5ar"]
 [ext_resource type="Script" path="res://src/ball_spawner.gd" id="4_gfbqr"]
 
@@ -62,15 +62,13 @@ script = ExtResource("4_gfbqr")
 position = Vector2(576, 84.5)
 shape = SubResource("RectangleShape2D_o5lbo")
 
-[node name="Player1" parent="." instance=ExtResource("1_58283")]
-modulate = Color(0.729412, 0, 0.133333, 1)
+[node name="Player1" parent="." instance=ExtResource("3_s4rsf")]
+modulate = Color(0.764706, 0, 0.282353, 1)
 position = Vector2(213, 622)
-platform_floor_layers = 4294967292
-platform_wall_layers = 4
-movement_enabled = false
+moves = Array[StringName]([&"move_left", &"move_right"])
 
-[node name="Player2" parent="." instance=ExtResource("1_58283")]
-modulate = Color(3.99485e-06, 0.547122, 0.40665, 1)
+[node name="Player2" parent="." instance=ExtResource("3_s4rsf")]
+modulate = Color(0, 0.54902, 0.407843, 1)
 position = Vector2(921, 622)
 movement_enabled = false
 
@@ -78,4 +76,5 @@ movement_enabled = false
 
 [connection signal="body_entered" from="BelowFloorDetector" to="." method="_on_ball_left_scene"]
 [connection signal="restart_game" from="HUD" to="." method="_on_hud_restart_game"]
+[connection signal="start_multi_player" from="HUD" to="." method="_on_hud_start_multi_player"]
 [connection signal="start_single_player" from="HUD" to="." method="_on_hud_start_single_player"]

@@ -25,7 +25,7 @@ func spawn(position: Vector2, velocity: Vector2) -> Node2D:
 	var ball = BallScene.instantiate()
 	ball.position = position
 	ball.velocity = velocity
-	add_child(ball)
+	call_deferred("add_child", ball)
 	return ball
 
 
