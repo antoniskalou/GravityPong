@@ -7,15 +7,15 @@ extends Node
 @export var player_2_moves: Array[StringName] = ["move_left_2", "move_right_2"]
 
 @onready var players: Array[Node2D] = [player_1, player_2]
-@onready var lives: Array = players.map(func(p): return 3)
 @onready var current_player: Node2D = players[0]
 
 
 func game_start():
 	$HUD.game_start()
-	lives = players.map(func(p): return 3)
-	$HUD.player_1_set_lives(lives[0])
-	$HUD.player_2_set_lives(lives[1])
+	player_1.reset_lives()
+	player_2.reset_lives()
+	$HUD.player_1_set_lives(player_1.lives)
+	$HUD.player_2_set_lives(player_2.lives)
 	$BallSpawner.spawn_randomly()
 	# loser plays first
 	current_player.movement_enabled = true
@@ -42,17 +42,6 @@ func game_over():
 	$HUD.game_over(winner_name, winner.modulate)
 	
 
-func player_loose_life(player: Node) -> int:
-	var current_idx = players.find(player)
-	lives[current_idx] -= 1
-	return lives[current_idx]
-
-
-func lives_for_player(player: Node) -> int:
-	var current_idx = players.find(player)
-	return lives[current_idx]
-
-
 func next_player(current: Node) -> CharacterBody2D:
 	var current_idx = players.find(current)
 	return players[(current_idx + 1) % players.size()]
@@ -76,7 +65,7 @@ func _on_player_hit(player: Node2D) -> void:
 
 
 func _on_ball_left_scene(body: Node2D) -> void:
-	var lives = player_loose_life(current_player)
+	var lives = current_player.loose_life()
 	# update lives in score
 	if current_player == player_1:
 		$HUD.player_1_set_lives(lives)
