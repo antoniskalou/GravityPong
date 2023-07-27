@@ -6,6 +6,14 @@ signal start_multi_player
 signal restart_game
 
 
+var spawn_timer: Timer
+
+
+func show_timeout(timer: Timer):
+	spawn_timer = timer
+	$Play/SpawnCountdown.show()
+
+
 func main_menu() -> void:
 	$MainMenu.show()
 	$GameOver.hide()
@@ -33,6 +41,15 @@ func player_1_set_lives(lives: int) -> void:
 func player_2_set_lives(lives: int) -> void:
 	$Play/HealthBar2.lives = lives
 
+
+func _process(delta: float) -> void:
+	# is there a better way to do this? perhaps with await?
+	if spawn_timer:
+		$Play/SpawnCountdown.text = "%.2f" % [spawn_timer.time_left]
+		if spawn_timer.is_stopped():
+			$Play/SpawnCountdown.hide()
+			spawn_timer = null
+	
 
 func _on_play_again_pressed() -> void:
 	restart_game.emit()

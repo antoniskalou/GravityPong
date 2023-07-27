@@ -75,7 +75,14 @@ func _on_ball_left_scene(body: Node2D) -> void:
 		game_over()
 	else:
 		$BallSpawner.despawn_all()
-		$BallSpawner.spawn_randomly()
+		spawn_delayed($SpawnTimer)
+
+
+func spawn_delayed(timer: Timer):
+	timer.start()
+	$HUD.show_timeout(timer)
+	await timer.timeout
+	$BallSpawner.spawn_randomly()
 
 
 func _on_hud_restart_game() -> void:

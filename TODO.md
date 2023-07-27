@@ -1,0 +1,5 @@
+- [x] Timer for ball spawn
+	- [x] maybe show in UI
+- [ ] Highlight current player
+- [ ] Browse menu with controller
+- [ ] Background Music

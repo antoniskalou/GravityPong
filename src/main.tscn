@@ -62,8 +62,6 @@ script = ExtResource("4_gfbqr")
 position = Vector2(576, 84.5)
 shape = SubResource("RectangleShape2D_o5lbo")
 
-[node name="SpawnTimer" type="Timer" parent="."]
-
 [node name="Player1" parent="." instance=ExtResource("3_s4rsf")]
 modulate = Color(0.764706, 0, 0.282353, 1)
 position = Vector2(213, 622)
@@ -73,6 +71,10 @@ moves = Array[StringName]([&"move_left", &"move_right"])
 modulate = Color(0, 0.54902, 0.407843, 1)
 position = Vector2(921, 622)
 movement_enabled = false
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [node name="HUD" parent="." instance=ExtResource("4_3i5ar")]
 
