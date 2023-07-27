@@ -19,6 +19,7 @@ func game_start():
 	$BallSpawner.spawn_randomly()
 	# loser plays first
 	current_player.movement_enabled = true
+	current_player.highlight(true)
 	
 
 func start_single_player():
@@ -57,8 +58,10 @@ func _ready() -> void:
 func _on_player_hit(player: Node2D) -> void:
 	if current_player == player:
 		current_player.movement_enabled = false
+		current_player.highlight(false)
 		current_player = next_player(current_player)
 		current_player.movement_enabled = true
+		current_player.highlight(true)
 	else:
 		# hitting other player does nothing
 		pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dkeyt7cb0fu1c"]
+[gd_scene load_steps=41 format=3 uid="uid://dkeyt7cb0fu1c"]
 
 [ext_resource type="Script" path="res://src/paddle.gd" id="1_20rhy"]
 [ext_resource type="AudioStream" uid="uid://bitwsqsjulbji" path="res://assets/sfx/4359__noisecollector__pongblipf4.wav" id="2_57y4g"]
@@ -44,18 +44,16 @@ size = Vector2(130, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkhb8"]
 size = Vector2(128, 20)
 
-[sub_resource type="QuadMesh" id="QuadMesh_nrv84"]
-size = Vector2(128, 20)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_73fqt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6ybr"]
 shader = ExtResource("2_bgqaa")
-shader_parameter/line_color = Color(0, 0.607843, 0.0745098, 1)
-shader_parameter/line_thickness = 3.172
+shader_parameter/line_color = Color(0.352941, 0.807843, 1, 1)
+shader_parameter/line_thickness = 3.0
 
 [node name="Paddle" type="CharacterBody2D" groups=["paddle"]]
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_20rhy")
+outline_color = Color(0.352941, 0.807843, 1, 1)
 
 [node name="BallHitDetector" type="Area2D" parent="."]
 collision_layer = 0
@@ -68,12 +66,8 @@ debug_color = Color(0.713726, 0.482353, 0, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jkhb8")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-visible = false
-mesh = SubResource("QuadMesh_nrv84")
-
-[node name="Paddle" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_73fqt")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a6ybr")
 texture = ExtResource("2_tub0d")
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]

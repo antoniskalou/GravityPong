@@ -18,6 +18,10 @@ func loose_life() -> int:
 	return lives
 
 
+func highlight(enabled: bool) -> void:
+	$Paddle.highlight(enabled)
+
+
 func _process(delta: float) -> void:
 	if movement_enabled:
 		$Paddle.move(Input.get_axis(moves[0], moves[1]))
