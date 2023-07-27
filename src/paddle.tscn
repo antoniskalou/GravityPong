@@ -1,7 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://dkeyt7cb0fu1c"]
+[gd_scene load_steps=42 format=3 uid="uid://dkeyt7cb0fu1c"]
 
 [ext_resource type="Script" path="res://src/paddle.gd" id="1_20rhy"]
 [ext_resource type="AudioStream" uid="uid://bitwsqsjulbji" path="res://assets/sfx/4359__noisecollector__pongblipf4.wav" id="2_57y4g"]
+[ext_resource type="Shader" path="res://src/outline.gdshader" id="2_bgqaa"]
+[ext_resource type="Texture2D" uid="uid://d0f54ek7rbp3" path="res://assets/paddle.png" id="2_tub0d"]
 [ext_resource type="AudioStream" uid="uid://cx7oava52tihw" path="res://assets/sfx/4360__noisecollector__ponblipg5.wav" id="4_kw6tu"]
 [ext_resource type="AudioStream" uid="uid://ch5xusa7aj4eh" path="res://assets/sfx/4361__noisecollector__pongblipa3.wav" id="5_vuus2"]
 [ext_resource type="AudioStream" uid="uid://digp8x5fqh32q" path="res://assets/sfx/4362__noisecollector__pongblipa4.wav" id="6_6sa2m"]
@@ -36,22 +38,24 @@
 [ext_resource type="AudioStream" uid="uid://crfyimeupsiw1" path="res://assets/sfx/4390__noisecollector__pongblipf4.wav" id="34_dmb5k"]
 [ext_resource type="AudioStream" uid="uid://c40j8xij3lw42" path="res://assets/sfx/4391__noisecollector__pongblipf5.wav" id="35_pj0yu"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_nrv84"]
-size = Vector2(128, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ute4"]
 size = Vector2(130, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkhb8"]
 size = Vector2(128, 20)
 
+[sub_resource type="QuadMesh" id="QuadMesh_nrv84"]
+size = Vector2(128, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_73fqt"]
+shader = ExtResource("2_bgqaa")
+shader_parameter/line_color = Color(0, 0.607843, 0.0745098, 1)
+shader_parameter/line_thickness = 3.172
+
 [node name="Paddle" type="CharacterBody2D" groups=["paddle"]]
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_20rhy")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource("QuadMesh_nrv84")
 
 [node name="BallHitDetector" type="Area2D" parent="."]
 collision_layer = 0
@@ -63,6 +67,14 @@ debug_color = Color(0.713726, 0.482353, 0, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jkhb8")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
+mesh = SubResource("QuadMesh_nrv84")
+
+[node name="Paddle" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_73fqt")
+texture = ExtResource("2_tub0d")
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 script = ExtResource("33_bekrs")

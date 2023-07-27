@@ -18,6 +18,6 @@ void fragment() {
 	outline = 1.0 - outline;
 	
 	vec4 color = texture(TEXTURE, UV);
-	vec4 outlined_result = mix(color, line_color, outline * color.a);
-	COLOR = mix(color, outlined_result, outlined_result.a);
+	vec4 outlined_result = mix(COLOR, line_color, outline * color.a);
+	COLOR = mix(COLOR, outlined_result, outlined_result.a);
 }
