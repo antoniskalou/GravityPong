@@ -73,5 +73,9 @@ func _on_main_menu_pressed() -> void:
 	main_menu()
 
 
-func _on_audio_toggled(button_pressed: bool) -> void:
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), not button_pressed)
+func _on_music_toggled(button_pressed: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not button_pressed)
+
+
+func _on_sfx_toggled(button_pressed: bool) -> void:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), not button_pressed)

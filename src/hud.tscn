@@ -9,7 +9,6 @@
 script = ExtResource("1_niwif")
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GameTitle" type="Label" parent="MainMenu"]
 anchors_preset = 8
@@ -61,7 +60,7 @@ theme_override_font_sizes/font_size = 32
 disabled = true
 text = "Credits"
 
-[node name="AudioToggle" type="CheckButton" parent="MainMenu"]
+[node name="MusicToggle" type="CheckButton" parent="MainMenu"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -71,7 +70,20 @@ grow_vertical = 0
 theme = ExtResource("2_dbnox")
 theme_override_font_sizes/font_size = 16
 button_pressed = true
-text = "Audio"
+text = "Music"
+
+[node name="SFXToggle" type="CheckButton" parent="MainMenu"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -62.0
+offset_right = 98.0
+offset_bottom = -31.0
+grow_vertical = 0
+theme = ExtResource("2_dbnox")
+theme_override_font_sizes/font_size = 16
+button_pressed = true
+text = "SFX"
 
 [node name="Controls" type="RichTextLabel" parent="MainMenu"]
 anchors_preset = 4
@@ -190,6 +202,7 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="MainMenu/Options/SinglePlayer" to="." method="_on_single_player_pressed"]
 [connection signal="pressed" from="MainMenu/Options/MultiPlayer" to="." method="_on_multi_player_pressed"]
-[connection signal="toggled" from="MainMenu/AudioToggle" to="." method="_on_audio_toggled"]
+[connection signal="toggled" from="MainMenu/MusicToggle" to="." method="_on_music_toggled"]
+[connection signal="toggled" from="MainMenu/SFXToggle" to="." method="_on_sfx_toggled"]
 [connection signal="pressed" from="GameOver/Options/PlayAgain" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="GameOver/Options/MainMenu" to="." method="_on_main_menu_pressed"]

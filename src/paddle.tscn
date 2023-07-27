@@ -50,6 +50,7 @@ material = SubResource("ShaderMaterial_a6ybr")
 texture = ExtResource("2_tub0d")
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 script = ExtResource("33_bekrs")
 audio_files = Array[AudioStream]([ExtResource("2_57y4g"), ExtResource("4_kw6tu"), ExtResource("6_6sa2m"), ExtResource("8_mb1xx"), ExtResource("9_w5sen"), ExtResource("11_er5am"), ExtResource("18_rtj8j"), ExtResource("23_ngumi"), ExtResource("26_lu80b"), ExtResource("29_3f0bl"), ExtResource("32_ttyjt"), ExtResource("35_pj0yu")])
 
