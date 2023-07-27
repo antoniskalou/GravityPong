@@ -16,6 +16,9 @@ func show_timeout(timer: Timer):
 
 func main_menu() -> void:
 	$MainMenu.show()
+	# enable browsing with the gamepad
+	# see https://www.reddit.com/r/godot/comments/6q4q29/comment/dkxl13v/
+	$MainMenu/Options/SinglePlayer.grab_focus()
 	$GameOver.hide()
 	$Play.hide()
 
@@ -29,6 +32,7 @@ func game_start() -> void:
 func game_over(winner: String, color: Color) -> void:
 	$MainMenu.hide()
 	$GameOver.show()
+	$GameOver/Options/PlayAgain.grab_focus()
 	$Play.hide()
 	$GameOver/Winner.text = winner + " wins!"
 	$GameOver/Winner.modulate = color

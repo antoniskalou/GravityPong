@@ -89,7 +89,6 @@ Player 1: Gamepad L-axis or A and D
 Player 2: Left and right arrow"
 
 [node name="GameOver" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GameOver" type="Label" parent="GameOver"]
 anchors_preset = 8
