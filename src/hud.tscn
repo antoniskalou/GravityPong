@@ -10,38 +10,40 @@ script = ExtResource("1_niwif")
 
 [node name="Credits" type="CanvasLayer" parent="."]
 
-[node name="Credits" type="Label" parent="Credits"]
+[node name="Credits" type="RichTextLabel" parent="Credits"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -239.5
-offset_top = -272.0
-offset_right = 239.5
-offset_bottom = 160.0
+offset_left = -239.0
+offset_top = -293.0
+offset_right = 240.0
+offset_bottom = 177.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_dbnox")
-text = "Programming:
+bbcode_enabled = true
+text = "[center]
+[font_size=24]Programming[/font_size]
 Antonis Kalou
 
-Music:
-https://fardifferent.itch.io/loops
+[font_size=24]Music[/font_size]
+[url=https://fardifferent.itch.io/loops]FarDifferent - Loop Box #4[/url]
 
-Sound Effects:
-https://freesound.org/people/NoiseCollector/packs/254/
+[font_size=24]Sound Effects[/font_size]
+[url=https://freesound.org/people/NoiseCollector/]NoiseCollector[/url]
 
-Fonts
-https://fonts.google.com/specimen/Montserrat
+[font_size=24]Fonts[/font_size]
+[url=https://fonts.google.com/specimen/Montserrat]Montserrat Free Fonts[/url]
 
-Icons:
-https://game-icons.net/
+[font_size=24]Icons[/font_size]
+[url=https://game-icons.net/]Skoll - Game-Icons.net[/url]
 
-Sprites:
+[font_size=24]Graphics[/font_size]
 Antonis Kalou
-https://ansimuz.itch.io/industrial-parallax-background"
-horizontal_alignment = 1
+[url=https://ansimuz.itch.io/industrial-parallax-background]Ansimuz[/url]
+[/center]"
 
 [node name="MainMenu" type="Button" parent="Credits"]
 anchors_preset = 7
