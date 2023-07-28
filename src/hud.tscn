@@ -8,6 +8,57 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_niwif")
 
+[node name="Credits" type="CanvasLayer" parent="."]
+
+[node name="Credits" type="Label" parent="Credits"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.5
+offset_top = -272.0
+offset_right = 239.5
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dbnox")
+text = "Programming:
+Antonis Kalou
+
+Music:
+https://fardifferent.itch.io/loops
+
+Sound Effects:
+https://freesound.org/people/NoiseCollector/packs/254/
+
+Fonts
+https://fonts.google.com/specimen/Montserrat
+
+Icons:
+https://game-icons.net/
+
+Sprites:
+Antonis Kalou
+https://ansimuz.itch.io/industrial-parallax-background"
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="Credits"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -123.0
+offset_right = 98.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_dbnox")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
 [node name="MainMenu" type="CanvasLayer" parent="."]
 visible = false
 
@@ -102,6 +153,7 @@ Player 1: Gamepad L-axis or A and D
 Player 2: Left and right arrow"
 
 [node name="GameOver" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GameOver" type="Label" parent="GameOver"]
 anchors_preset = 8
@@ -163,6 +215,7 @@ theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 
 [node name="Play" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HealthBar1" type="HBoxContainer" parent="Play"]
 offset_right = 40.0
