@@ -19,8 +19,15 @@ func main_menu() -> void:
 	# enable browsing with the gamepad
 	# see https://www.reddit.com/r/godot/comments/6q4q29/comment/dkxl13v/
 	$MainMenu/Options/SinglePlayer.grab_focus()
+	$Credits.hide()
 	$GameOver.hide()
 	$Play.hide()
+
+
+func credits() -> void:
+	$MainMenu.hide()
+	$Credits.show()
+	$Credits/MainMenu.grab_focus()
 
 
 func game_start() -> void:
@@ -70,6 +77,14 @@ func _on_multi_player_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	# for now its fine to return to main menu, the game state will remain valid
 	# and when Single/Multi Player is clicked, the game state will be reset
+	main_menu()
+
+
+func _on_credits_pressed() -> void:
+	credits()
+
+
+func _on_credits_main_menu_pressed() -> void:
 	main_menu()
 
 
