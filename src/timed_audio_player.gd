@@ -34,24 +34,21 @@ func _ready() -> void:
 
 
 func _on_timeout() -> void:
-	print("timeout")
 	switch_track(audio_files.pick_random())
 	
 	
 func switch_track(track: AudioStream) -> void:
-	
+	var tween = get_tree().create_tween()
 	# fade out current track
 	if is_playing():
-		await tween_volume(LOWEST_DECIBEL, fade_duration).finished
-		stop()
-	stream = track
-	# fade in next track
-	play()
-	await tween_volume(default_volume_db, fade_duration).finished
+		tween_volume(tween, LOWEST_DECIBEL, fade_duration)
+		tween.tween_callback(stop)
+	# start next track
+	tween.tween_callback(func (): stream = track)
+	tween.tween_callback(play)
+	tween_volume(tween, default_volume_db, fade_duration)
 
 
-func tween_volume(volume_db: float, seconds: float) -> Tween:
-	var tween = get_tree().create_tween()
+func tween_volume(tween: Tween, volume_db: float, seconds: float):
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "volume_db", volume_db, seconds)
-	return tween
