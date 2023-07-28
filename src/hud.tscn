@@ -9,6 +9,7 @@
 script = ExtResource("1_niwif")
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GameTitle" type="Label" parent="MainMenu"]
 anchors_preset = 8
@@ -180,7 +181,7 @@ grow_horizontal = 0
 alignment = 2
 script = ExtResource("3_adgsp")
 heartTexture = ExtResource("1_4fp27")
-heartColor = Color(0, 0.513726, 0.0313726, 1)
+heartColor = Color(0.172549, 0.396078, 1, 1)
 
 [node name="SpawnCountdown" type="Label" parent="Play"]
 visible = false

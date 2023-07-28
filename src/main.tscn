@@ -1,16 +1,31 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfd1634uvdqem"]
+[gd_scene load_steps=21 format=3 uid="uid://dfd1634uvdqem"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_mckqf"]
+[ext_resource type="Texture2D" uid="uid://e4ie5tfbj800" path="res://assets/backgrounds/bg.png" id="2_18y3k"]
+[ext_resource type="Texture2D" uid="uid://fn37rtcasjrs" path="res://assets/backgrounds/far-buildings.png" id="3_pgb2q"]
 [ext_resource type="PackedScene" uid="uid://br8d8ieh5vlnu" path="res://src/player.tscn" id="3_s4rsf"]
+[ext_resource type="Texture2D" uid="uid://cnqa3odibr5p5" path="res://assets/backgrounds/buildings.png" id="3_x1spi"]
 [ext_resource type="PackedScene" uid="uid://v55jgofobus" path="res://src/hud.tscn" id="4_3i5ar"]
 [ext_resource type="Script" path="res://src/ball_spawner.gd" id="4_gfbqr"]
 [ext_resource type="Script" path="res://src/timed_audio_player.gd" id="5_0pimq"]
+[ext_resource type="Texture2D" uid="uid://cyrgb4ygafo6b" path="res://assets/backgrounds/skill-foreground.png" id="5_dgagh"]
 [ext_resource type="AudioStream" uid="uid://dan3cgu4dc3us" path="res://assets/music/Of Far Different Nature - Bouncer [v2] (CC-BY 4.0).ogg" id="5_fcttd"]
 [ext_resource type="AudioStream" uid="uid://viyod7gl8dwm" path="res://assets/music/Of Far Different Nature - Cruiser (CC-BY).ogg" id="6_ic8tj"]
 [ext_resource type="AudioStream" uid="uid://badewmulscru8" path="res://assets/music/Of Far Different Nature - Le Flamand [v2] (CC-BY).ogg" id="9_sevbi"]
 [ext_resource type="AudioStream" uid="uid://1ts61mxtxdux" path="res://assets/music/Of Far Different Nature - Vengeance Electro [v2] (CC-BY 4.0).ogg" id="10_0javg"]
 [ext_resource type="AudioStream" uid="uid://b8vm0shasfjbr" path="res://assets/music/Of Far Different Nature - Victory Party [v2] (CC-BY 4.0).ogg" id="11_7uhdf"]
 [ext_resource type="AudioStream" uid="uid://b3y7e2sdyuxba" path="res://assets/music/Of Far Different Nature - Windfish (CC-BY 4.0).ogg" id="12_60c3l"]
+
+[sub_resource type="GDScript" id="GDScript_5v4kn"]
+script/source = "extends ParallaxBackground
+
+var scroll_x := 0.0
+
+
+func _process(delta: float) -> void:
+	scroll_x -= 100 * delta
+	scroll_offset.x = scroll_x
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyniw"]
 size = Vector2(24, 652)
@@ -28,6 +43,40 @@ size = Vector2(670, 141)
 script = ExtResource("1_mckqf")
 player_1 = NodePath("Player1")
 player_2 = NodePath("Player2")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = SubResource("GDScript_5v4kn")
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(576, 324.25)
+scale = Vector2(4.23529, 4.04688)
+texture = ExtResource("2_18y3k")
+
+[node name="FarLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Far-buildings" type="Sprite2D" parent="ParallaxBackground/FarLayer"]
+position = Vector2(576, 324)
+scale = Vector2(5.40845, 4.5493)
+texture = ExtResource("3_pgb2q")
+
+[node name="MiddleLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Buildings" type="Sprite2D" parent="ParallaxBackground/MiddleLayer"]
+position = Vector2(576, 323.5)
+scale = Vector2(4.23529, 4.31333)
+texture = ExtResource("3_x1spi")
+
+[node name="FrontLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Skill-foreground" type="Sprite2D" parent="ParallaxBackground/FrontLayer"]
+position = Vector2(576, 470.5)
+scale = Vector2(4.23529, 3.41346)
+texture = ExtResource("5_dgagh")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -75,7 +124,7 @@ position = Vector2(213, 622)
 moves = Array[StringName]([&"move_left", &"move_right"])
 
 [node name="Player2" parent="." instance=ExtResource("3_s4rsf")]
-modulate = Color(0, 0.54902, 0.407843, 1)
+modulate = Color(0.172549, 0.396078, 1, 1)
 position = Vector2(921, 622)
 movement_enabled = false
 
