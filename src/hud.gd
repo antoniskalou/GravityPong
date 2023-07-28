@@ -92,10 +92,16 @@ func _on_credits_main_menu_pressed() -> void:
 	main_menu()
 
 
+func _on_credits_meta_clicked(meta) -> void:
+	# handle clicking on links in credits
+	OS.shell_open(str(meta))
+
+
 func _on_music_toggled(button_pressed: bool) -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not button_pressed)
 
 
 func _on_sfx_toggled(button_pressed: bool) -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), not button_pressed)
+
 
