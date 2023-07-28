@@ -6,7 +6,7 @@ const LOWEST_DECIBEL := -80.0
 ## Duration the each track should play for, in seconds
 @export var track_duration := 5.0 * 60.0 # 5 minutes
 ## Duration it takes to fade track in and out, in seconds
-@export var fade_duration := 1.0
+@export var fade_duration := 3.0
 @export var audio_files: Array[AudioStream]
 
 @onready var play_timer := Timer.new()
@@ -34,6 +34,7 @@ func _ready() -> void:
 
 
 func _on_timeout() -> void:
+	print("Switching track")
 	switch_track(audio_files.pick_random())
 	
 	
@@ -41,12 +42,13 @@ func switch_track(track: AudioStream) -> void:
 	var tween = get_tree().create_tween()
 	# fade out current track
 	if is_playing():
-		tween_volume(tween, LOWEST_DECIBEL, fade_duration)
+		# half fade duration taken here, half later
+		tween_volume(tween, LOWEST_DECIBEL, fade_duration / 2.0)
 		tween.tween_callback(stop)
 	# start next track
 	tween.tween_callback(func (): stream = track)
 	tween.tween_callback(play)
-	tween_volume(tween, default_volume_db, fade_duration)
+	tween_volume(tween, default_volume_db, fade_duration / 2.0)
 
 
 func tween_volume(tween: Tween, volume_db: float, seconds: float):

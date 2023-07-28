@@ -2,4 +2,4 @@
 	- [x] maybe show in UI
 - [x] Highlight current player
 - [x] Browse menu with controller
-- [ ] Background Music
+- [x] Background Music
