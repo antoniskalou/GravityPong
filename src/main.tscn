@@ -119,12 +119,12 @@ position = Vector2(576, 84.5)
 shape = SubResource("RectangleShape2D_o5lbo")
 
 [node name="Player1" parent="." instance=ExtResource("3_s4rsf")]
-modulate = Color(0.764706, 0, 0.282353, 1)
+modulate = Color(1, 0, 0.247059, 1)
 position = Vector2(213, 622)
 moves = Array[StringName]([&"move_left", &"move_right"])
 
 [node name="Player2" parent="." instance=ExtResource("3_s4rsf")]
-modulate = Color(0.172549, 0.396078, 1, 1)
+modulate = Color(0.173397, 0.394563, 1, 1)
 position = Vector2(921, 622)
 movement_enabled = false
 

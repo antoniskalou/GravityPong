@@ -25,14 +25,14 @@ size = Vector2(128, 20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a6ybr"]
 shader = ExtResource("2_bgqaa")
-shader_parameter/line_color = Color(0.352941, 0.807843, 1, 1)
+shader_parameter/line_color = Color(0.0588235, 0.941176, 0.988235, 1)
 shader_parameter/line_thickness = 3.0
 
 [node name="Paddle" type="CharacterBody2D" groups=["paddle"]]
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_20rhy")
-outline_color = Color(0.352941, 0.807843, 1, 1)
+outline_color = Color(0.0588235, 0.941176, 0.988235, 1)
 
 [node name="BallHitDetector" type="Area2D" parent="."]
 collision_layer = 0

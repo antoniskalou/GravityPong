@@ -15,7 +15,7 @@ motion_mode = 1
 script = ExtResource("1_jwrfy")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(0.745098, 0.403922, 0.537255, 1)
+modulate = Color(0.988235, 0.454902, 0.992157, 1)
 mesh = SubResource("SphereMesh_2n70m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
