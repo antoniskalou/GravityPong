@@ -116,6 +116,12 @@ theme = ExtResource("2_dbnox")
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
+[node name="Exit" type="Button" parent="MainMenu/Options"]
+layout_mode = 2
+theme = ExtResource("2_dbnox")
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
 [node name="MusicToggle" type="CheckButton" parent="MainMenu"]
 anchors_preset = 2
 anchor_top = 1.0
@@ -262,6 +268,7 @@ horizontal_alignment = 1
 [connection signal="pressed" from="MainMenu/Options/SinglePlayer" to="." method="_on_single_player_pressed"]
 [connection signal="pressed" from="MainMenu/Options/MultiPlayer" to="." method="_on_multi_player_pressed"]
 [connection signal="pressed" from="MainMenu/Options/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainMenu/Options/Exit" to="." method="_on_exit_pressed"]
 [connection signal="toggled" from="MainMenu/MusicToggle" to="." method="_on_music_toggled"]
 [connection signal="toggled" from="MainMenu/SFXToggle" to="." method="_on_sfx_toggled"]
 [connection signal="pressed" from="GameOver/Options/PlayAgain" to="." method="_on_play_again_pressed"]

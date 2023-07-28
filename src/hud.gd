@@ -74,14 +74,18 @@ func _on_multi_player_pressed() -> void:
 	start_multi_player.emit()
 
 
+func _on_credits_pressed() -> void:
+	credits()
+	
+	
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+
+
 func _on_main_menu_pressed() -> void:
 	# for now its fine to return to main menu, the game state will remain valid
 	# and when Single/Multi Player is clicked, the game state will be reset
 	main_menu()
-
-
-func _on_credits_pressed() -> void:
-	credits()
 
 
 func _on_credits_main_menu_pressed() -> void:
@@ -94,3 +98,4 @@ func _on_music_toggled(button_pressed: bool) -> void:
 
 func _on_sfx_toggled(button_pressed: bool) -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), not button_pressed)
+
